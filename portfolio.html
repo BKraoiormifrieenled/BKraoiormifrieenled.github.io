@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+            <title>Artdates</title>
+            <style>
+                body {
+                    background: rgb(19,1,1);
+                    color: rgb(30, 7, 15);
+                    padding: 10px;
+                    font-family: times;
+                }
+                #all-contents {
+                  max-width: 800px;
+                    margin: auto;
+                }
+             
+                /* navigation menu */
+                nav {
+                    background: rgb(107, 53, 57);
+                   margin: 0 auto;
+                   margin-bottom: 10px;
+                   border-radius: 10px;
+                    display: flex;
+                    padding: 10px;
+                }
+                h1 {
+                    display: flex;
+                    align-items: center;
+                    color: rgb(30, 7, 15);
+                    flex: 1;
+                    margin: 0;
+                }
+                #nav-ul {
+                    list-style-image: none;
+                }
+                .nav-li {
+                    display: inline-block;
+                    padding: 0 10px;
+                }
+                a {
+                    text-decoration: none;
+                    color: rgb(30, 7, 15);
+                }
+             
+                /* main container area beneath menu */
+                main {
+                    background: rgb(230, 194, 196);
+                    display: flex;
+                    border-radius: 5px;
+                    padding: 30px;
+                }
+                .sidebar {
+                    margin-right: 25px;
+                    padding: 10px;
+                }
+                .sidebar-img {
+                    width: 150px;
+                }
+                .content {
+                    flex: 1;
+                    padding: 15px;
+
+                }
+                #interests {
+                    border: 10px rbg(30, 7, 15);
+                    padding: 8px;
+                }
+                h2, h3 {
+                    margin: 0px;
+                p {
+                    color: rgb(30, 7, 15)
+                }
+                }
+
+                  /* portfolio styles */
+         .content h1 {
+             color: black;
+         }
+
+         #portfolio {
+             list-style-type: none;
+             padding-left: 0;
+         }
+
+         #portfolio li {
+             background: #fff;
+             padding: 10px;
+             border-radius: 10px;
+             margin-bottom: 10px;
+         }
+
+         #portfolio li:hover {
+             background: #eee;
+         }
+
+         #portfolio a {
+             text-decoration: none;
+             color: #454545;
+         }
+             </style>
+    </head>
+
+    <body>
+        <div id="all-contents">
+            <nav>
+                <h1>Artdates - Website</h1>
+                <ul id="nav-ul">
+                   <li class="nav-li">
+                   <a class="nav-a" href="index.html">Home</a>
+                 </li>
+                 <li class="nav-li">
+                   <a class="nav-a" href="portfolio.html">Portfolio</a>
+                 </li>
+             </ul>
+         </nav>
+
+         <main> 
+            <div class="content">
+                <h2>Portfolio 2 Electric Boogaloo</h2>
+                <ul id="portfolio">
+                    <li><a href="projects/platformer/">Platformer : A platformer, a really cool one</a></li>
+                    <li><a href="projects/bouncing-box/">Bouncing Box : Click the box.</a></li>
+                    <li><a href="projects/circularity/">Circularity : A thing that makes poems. But Circle.</a></li>
+                    <li><a href="projects/farm-sim/"> Mune Market : Farming Simulator</a></li>
+                </ul>
+         </main>
+     </div>
+      </div>
+    </body>
+</html>
