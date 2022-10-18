@@ -14,7 +14,7 @@
 			display: block;
 			position: absolute;
 			top: 100px;
-			left: 0px;  /* <--- Change me! */
+			left: 0;  /* <--- Change me! */
 		}
 		.board{
 			height: 100vh;
@@ -33,7 +33,7 @@
 			/* global jQuery */
 
 			//////////////////////////////////////////////////////////////////
-			/////////////////// SETUP DO NOT DELETE //////////////////////////
+			//////////////////////// SETUP DO NOT DELETE /////////////////////
 			//////////////////////////////////////////////////////////////////
 			
 			var box = jQuery('.box');	// reference to the HTML .box element
@@ -57,33 +57,30 @@
 			}
 
 			//////////////////////////////////////////////////////////////////
-			/////////////////// YOUR CODE BELOW HERE /////////////////////////
+			/////////////////////// YOUR CODE BELOW HERE /////////////////////
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			
-
-			
-			/* 
-			This Function will be called 20 times/second. Each time it is called,
+			/* This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
-			turn it around! 
-			*/
-			function update() {
-				
+			turn it around! */
+			var positionX = 0
+			var score = 0
+			var speed = 10
 
-			};
+			function update() 
+			{positionX = positionX + speed;
+			moveBoxTo(positionX)};
 
-			/* 
-			This Function will be called each time the box is clicked. Each time it is called,
+			update(2)
+
+			/* This Function will be called each time the box is clicked. Each time it is called,
 			it should increase the points total, increase the speed, and move the box to
-			the left side of the screen.
-			*/
-			function handleBoxClick() {
-				
-
-
-			};
+			the left side of the screen.*/
+			function handleBoxClick() 
+			{positionX = 0;
+			changeBoxText(points + 1);
+		    speed = speed + 3;};
 		})();
 	</script>
 </body>
