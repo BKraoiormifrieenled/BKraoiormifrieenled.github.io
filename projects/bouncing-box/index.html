@@ -68,27 +68,23 @@
 			var score = 0
 			var speed = 10
 
-			function update() 
-			{positionX = positionX + speed;
+			function update() {
+			positionX = positionX + speed;
 			moveBoxTo(positionX)
-			if (positionX > 200)
-			{speed = -speed}
-			if (positionX < 0)
-			{speed = -speed}
+			if (positionX >= boardWidth){
+				speed = -speed
+			}
+			if (positionX <= 0){
+				speed = -speed
+			}
 		    };
-
-			update()
 
 			/* This Function will be called each time the box is clicked. Each time it is called,
 			it should increase the points total, increase the speed, and move the box to
 			the left side of the screen.*/
-			function handleBoxClick() 
-			{positionX = 0;
+			function handleBoxClick() {
+			positionX = 0;
 			changeBoxText(score + 1);
-			if (speed >= 0)
-			{speed = speed + 3}
-			else if (speed <= -1) 
-			{speed = speed - 3}
 		    };
 		})();
 	</script>
