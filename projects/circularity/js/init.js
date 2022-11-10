@@ -50,6 +50,7 @@ var init = function (window) {
             // TODO 4 : Update the circle's position <-- issue originally located here (ref 11/9/22 ver.) //
             function update() {
                 for (var i = 0; i < circles.length; i++) {
+                    var eachCircle = circles[i];
                     physikz.updatePosition(circles[i])
                   game.checkCirclePosition(circles[i])
                  }
