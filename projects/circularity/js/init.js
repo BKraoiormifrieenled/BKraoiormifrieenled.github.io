@@ -21,7 +21,7 @@ var init = function (window) {
         
         // TODO 1 : Declare and initialize our variables
         var circle;
-        var circles = []
+        var circles = [];
 
         // TODO 2 : Create a function that draws a circle 
         function drawCircle () {
@@ -31,13 +31,12 @@ var init = function (window) {
              circles.push(circle);
             }            
 
-         // TODO 3 / 7 : Call the drawCircle() function 
+         // TODO 3 / 7 : Call the drawCircle() function <-- tested and it works
              /* Your Function Calls HERE */
-            drawCircle ()
-            drawCircle ()
-            drawCircle ()
-            drawCircle ()
-            drawCircle ()
+             for (var circleamount = 0; circleamount < 100; circleamount++) {
+                drawCircle ()
+            }
+
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
         ////////////////////////////////////////////////////////////
@@ -48,24 +47,18 @@ var init = function (window) {
         and check to see if it has drifted off the screen.         
         */
         function update() {
-            // TODO 4 : Update the circle's position //
+            // TODO 4 : Update the circle's position <-- issue originally located here (ref 11/9/22 ver.) //
             function update() {
-                physikz.updatePosition(circles[0])
-                physikz.updatePosition(circles[1])
-                physikz.updatePosition(circles[2])
-                physikz.updatePosition(circles[3])
-                physikz.updatePosition(circles[4])
+                for (var i = 0; i < circles.length; i++) {
+                    physikz.updatePosition(circles[i])
+                  game.checkCirclePosition(circles[i])
+                 }
             }
-            
-            // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
-                game.checkCirclePosition(circles[0])
-                game.checkCirclePosition(circles[1])
-                game.checkCirclePosition(circles[2])
-                game.checkCirclePosition(circles[3])
-                game.checkCirclePosition(circles[4])
+            // Code above for TODO 4, 5 & 8 was replaced with a for loop in TODO 9
+
+            // TODO 5 / 8 : Call game.checkCirclePosition() on your circles.
 
             // TODO 9 : Iterate over the array
-           
             
         }
     
