@@ -56,7 +56,7 @@ var background = function (window) {
                 background.addChild(circle);
             }
 
-            // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
+            // TODO 5: Part 1 - Add buildings! Q: This is before TODO 4 for a reason! Why?
             for (var i = 0; i < 5; ++i) {
                 var buildingHeight = 300;
                 var building = draw.rect(75, buildingHeight, "LightGray", "Black", 1);
@@ -71,7 +71,7 @@ var background = function (window) {
             tree.x = 0;
             tree.y = groundY - 245;
             background.addChild(tree);
-
+           
         } // end of render function - DO NOT DELETE
 
 
@@ -91,9 +91,8 @@ var background = function (window) {
 
             // TODO 5: Part 2 - Parallax
             for (var index = 0; index < building.length; index++) {
-                var eachElement = buildings [index];
+                var eachElement = buildings[index];
                 eachElement.x = eachElement.x - 1.5;
-               
                 if (eachElement.x < -200) {
                     eachElement.x = canvasWidth
                 }
