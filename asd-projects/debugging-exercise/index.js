@@ -86,6 +86,9 @@ function addNewCircleElement(circle, id){
     //////////////////
 
     // this should move all of the circles
+    
+    debugger
+
     function update() {
 
     // loop over the circles array. We use the maxCircles variable instead of circles.length
@@ -93,7 +96,7 @@ function addNewCircleElement(circle, id){
     // circles.length, but do NOT change it here)
     for (var i = 0; i < maxCircles; i++) {
         var circle = circles[i];
-         debugger
+         
         // move the circle
         moveCircle(circle);
 
@@ -111,7 +114,7 @@ function addNewCircleElement(circle, id){
 
 // this moves circles in memory but doesn't update them on the screen
 function moveCircle(circle) {
-    circle.x = circle.speedX;
+    circle.x += circle.speedX;
     circle.y += circle.speedY;
 }
 
@@ -136,7 +139,7 @@ function bounceCircle(circle) {
     // this bounces off the bottom wall
     else if (circle.y > boardHeight) {
         circle.y -= circle.speedY;
-        circle.speedX *= -1;
+        circle.speedY *= -1;
     }
 }
 
