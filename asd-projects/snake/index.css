@@ -1,25 +1,40 @@
-
 body {
-  background-color: darkgreen;
+  background-color: rgba(236, 53, 83, 0.669);
+}
+
+#screen {
+  margin: auto;
+  text-align: center;
 }
 
 #board {
   width: 440px;
   height: 440px;
-  border: 1px solid white;
-  background-color: black;
+  border: 10px solid rgb(255, 177, 192);
+  background-color: rgb(70, 5, 19);
+  margin: auto;
+  text-align: center;
 }
 
 #score, #highScore {
   color: white;
+  margin: auto;
+  text-align: center;
+}
+
+#restart {
+  margin: auto;
+  text-align: center;
 }
 
 .snake, .apple {
   display: block;
   width: 20px;
   height: 20px;
-  position: absolute;
   user-select: none;
+  margin: auto;
+  text-align: center;
+  position: relative;
 }
 
 .snake {
