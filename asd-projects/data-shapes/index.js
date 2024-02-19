@@ -65,11 +65,10 @@ $(document).ready(function () {
      setBackgroundWithObject(data)
      animationDetails.displayType = 1
    } 
-
+  
 // TODO 4-a: add a function that handles the good display type
    function handleGood (color, shape, repeat) {
      setBackgroundWithSimple(color, shape, repeat)  
-
      animationDetails.displayType = 2
     }
 
@@ -91,25 +90,25 @@ function staticDisplay() {
 
 function goodDisplay() {
  // TODO 4-b: call your handleGood function
- handleGood(currentShape.color, currentShape.shape, currentShape.repeat)
- var currentShape = dataShapes.shape
+ var currentShape = dataShapes[i] // If current shape is refrencing an array,
+ handleGood(currentShape.color, currentShape.shape, currentShape.repeat) // How do you refrence it's properties????
 }
 
 function badDisplay() {
  // TODO 5-b: call your handleBad function
  var currentShape = dataShapes[i]
- var repeat = currentShape.shape
+ var repeat = currentShape.shape // Same question as of line 93 & 94?????
  handleBad(currentShape, repeat)
 }
 
 handleBad(currentShape, repeat)
 
 /////////////////////////////////////////////////
-// ALL OF YOUR CODE SHOULD GO ABOVE HERE ////////
+///// ALL OF YOUR CODE SHOULD GO ABOVE HERE /////
 /////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////
-// DO NOT TOUCH ANY OF THE BELOW CODE /////////////
+/////// DO NOT TOUCH ANY OF THE BELOW CODE ////////
 ///////////////////////////////////////////////////
 
 // This function generates objects for 26 of the necessary 27 entries into the dataShapes array that is used for most of this program
