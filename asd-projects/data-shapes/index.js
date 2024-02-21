@@ -39,23 +39,23 @@ $(document).ready(function () {
 
 // TODO 1: create a new shape object and add it to the array
   var shape = {
-     key: color, value: "blue",
-     key: shape, value: "circle",
-     key: repeat, value: 3
+     color: "blue",
+     shape: "circle",
+     repeat: 3
      }
-
+  
   dataShapes.push(shape)
-
+  
 // TODO 2: add a new property to all data shapes
-   for (var i = 0; i < dataShapes.length; i++) {
+   for (var i = 0; i < dataShapes.length -1; i++) {
      var currentShape = dataShapes[i];
-    
-   if (currentShape.color === "red") {
+  //
+   if (currentShape.color = "red") {
     currentShape.goodBehavior = "bounce"}
-
-   else if (currentShape.color === "blue") {
+  //
+   else if (currentShape.color = "blue") {
     currentShape.goodBehavior = "blink"}
-
+  //
    else
    {currentShape.goodBehavior = "spin"}
    }
@@ -79,9 +79,9 @@ function handleBad (data, repeat) {
  animationDetails.displayType = 3
 }
 
-/////////////////////////////////////////////////
-// BUTTON HANDLERS BELOW HERE (3-b, 4-b, 5-b) ///
-/////////////////////////////////////////////////
+//////////////////////////////////////////////////
+/// BUTTON HANDLERS BELOW HERE (3-b, 4-b, 5-b) ///
+//////////////////////////////////////////////////
 
 function staticDisplay() {
  // TODO 3-b: call your handleStatic function
@@ -90,18 +90,17 @@ function staticDisplay() {
 
 function goodDisplay() {
  // TODO 4-b: call your handleGood function
- var currentShape = dataShapes[i] // If current shape is refrencing an array,
- handleGood(currentShape.color, currentShape.shape, currentShape.repeat) // How do you refrence it's properties????
+ var currentShape = dataShapes[i] 
+ handleGood(currentShape.color, currentShape.shape, currentShape.repeat)
 }
 
 function badDisplay() {
  // TODO 5-b: call your handleBad function
  var currentShape = dataShapes[i]
- var repeat = currentShape.shape // Same question as of line 93 & 94?????
+ var repeat = currentShape.repeat
  handleBad(currentShape, repeat)
 }
 
-handleBad(currentShape, repeat)
 
 /////////////////////////////////////////////////
 ///// ALL OF YOUR CODE SHOULD GO ABOVE HERE /////
