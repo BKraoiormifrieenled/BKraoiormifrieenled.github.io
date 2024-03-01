@@ -32,7 +32,6 @@ $(document).ready(function () {
     // this tells the program to run the update function 60 times per second
     setInterval(update, 1000 / 60);
 
-
     ///////////////////////////
     // startup helper functions
     ///////////////////////////
@@ -145,7 +144,6 @@ function bounceCircle(circle) {
 
 // this redraws the circle's position on the screen
 function updateCircleOnScreen(circle) {
-    maxCircles = i;
 
     // these lines redraw the circle's position
     $(circle.id).css('left', circle.x);
