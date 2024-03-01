@@ -10,9 +10,23 @@
     <script src="index.js"></script>
   </head>
   
-  <body>
-    <div id='board'>
-      <div id='gameItem'></div>
+ <body>
+   <div id="game">
+
+     <div id='board'>
+        <div id='walker'></div>
+        <div id="projectile"></div>
+     </div>
+    <!---->
+     <div id='status'>
+       <button class="metaData", id="debugToggle">x</button>
+       <p class="metaData", id="imputLog">Awaitng Imput</p> 
+       <p class="metaData", id="showDebug">Show Debug?: True</p>
+       <p class="metaData", id="walkerCordinates">Current Cordinates: 0, 0</p> 
+       <p class="metaData", id="projectileReady">Projectile Ready?: False</p>
+       <p class="metaData", id="projectileCordinates">Projectile Cordinates: 0, 0</p>
+     </div>
+    <!---->
     </div>
-  </body>
+ </body>
 </html>

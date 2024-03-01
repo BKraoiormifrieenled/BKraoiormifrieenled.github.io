@@ -91,10 +91,10 @@ function checkForNewDirection(event) {
   BONUS: Only allow direction changes to take place if the new direction is
   perpendicular to the current direction
   */ // ??????????? //
-
+debugger
   if (activeKey === KEY.LEFT) {
      snake.head.direction = "left";}
-      
+     
      // FILL IN THE REST
      if (activeKey === KEY.RIGHT) {
        snake.head.direction = "right";}
@@ -133,21 +133,21 @@ function moveSnake() {
   of snake.head.direction which may be one of "left", "right", "up", or "down"
   */
 
-  if (snake.head.direction === "left") {
-    snake.head.column = snake.head.column - 1;}
-  
-   if (snake.head.direction === "right") {
+   if (snake.head.direction = "left") {
+     snake.head.column = snake.head.column - 1;}
+   //
+   if (snake.head.direction = "right") {
       snake.head.column = snake.head.column + 1;}
    //
-   if (snake.head.direction === "up") {
+   if (snake.head.direction = "up") {
       snake.head.column = snake.head.row - 1;}
    //
-   if (snake.head.direction === "down") {
+   if (snake.head.direction = "down") {
      snake.head.column = snake.head.row + 1;}
   
-  repositionSquare(snake.head);
-  
-   }
+   repositionSquare(snake.head);
+
+}
 
 function hasHitWall() {
   /* 
@@ -157,18 +157,18 @@ function hasHitWall() {
   HINT: What will the row and column of the snake's head be if this were the case?
   */
   
-  if (snake.head.row = 20) {
+  if (snake.head.row = ROWS + 1) { // One Row outside of the box
    return true; }
    //
-   else if (snake.head.row = 0) {
+   else if (snake.head.row = -1) { //^^ but on the other side
+     return true; 
+     }
+   //
+  if (snake.head.column = COLUMNS + 1) { // one column outside of the box
      return true;
      }
    //
-   else if (snake.head.column = 20) {
-     return true;
-     }
-   //
-   else if (snake.head.column = 0) {
+   else if (snake.head.column = -1) { // ^^, but on the other end
       return true;
      }
    //
@@ -219,18 +219,21 @@ function handleAppleCollision() {
   var column = 0;
 
   // code to determine the row and column of the snakeSquare to add to the snake
+  
+  var makeSnakeSquare
+
   if (snake.head.direction = "left") {
-    makeSnakeSquare(snake.head.row, snake.head.column + 1);
+   makeSnakeSquare(snake.head.row, snake.head.column + 1);
    }
-   //
-     else if (snake.head.direction = "right") {
-      makeSnakeSquare(snake.head.row, snake.head.column - 1);
-     }
-     else if (snake.head.direction = "up") {
-      makeSnakeSquare(snake.head.row + 1, snake.head.column);
-     }
-   //
-   else if (snake.head.direction = "down") {                  // PERSONAL NOTE:
+ //
+  if (snake.head.direction = "right") {
+   makeSnakeSquare(snake.head.row, snake.head.column - 1);
+   }
+  if (snake.head.direction = "up") {
+    makeSnakeSquare(snake.head.row + 1, snake.head.column);
+   }
+ //
+  if (snake.head.direction = "down") {                        // PERSONAL NOTE:
     makeSnakeSquare(snake.head.row - 1, snake.head.column ); // Going up one is -1, an the square needs
    }                                                        // to be one row above the head when going down
 
