@@ -10,7 +10,7 @@ function runProgram(){
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
-  const KEY = {
+  const KEY = { // Gets rid of magic numbers in functions
     "ENTER": 13,
     "SPACEBAR": 32,
     "LEFT": 37,
@@ -27,7 +27,7 @@ function runProgram(){
     speedY: 0,
    }
 
-  var projectile = {
+  var projectile = { // DEFUNCT
     positionX: 0,
     positionY: 0,
     speedX: 0,
@@ -60,6 +60,7 @@ function runProgram(){
     repositionGameItem(walker);
     wallColision(walker);
     redrawGameItem(walker);
+    redrawGameItem(projectile);
   }
   
   /* 
@@ -67,9 +68,9 @@ function runProgram(){
   */
   
   // $("#debugToggle").on("click", toggleStatusBox());
-
-  function handleKeyDown(event) {
+  function handleKeyDown(event) { // Responds when any of the buttons are pressed
     $("#walkerCordinates").text("Current Cordinates: " + walker.positionX + ", " + walker.positionY);
+    $("#projectileCordinates").text("Projectile Cordinates: " + projectile.positionX + ", " + projectile.positionY);
     //
     if (event.which === KEY.ENTER) {
       $imputLog.text("Imput: Enter Key");
@@ -80,6 +81,7 @@ function runProgram(){
     if (event.which === KEY.SPACEBAR) {
       $imputLog.text("Imput: Space Bar");
       console.log("Space Bar pressed");
+      positionProjectile()
     }
     //
     if (event.which === KEY.LEFT) {
@@ -109,7 +111,7 @@ function runProgram(){
     console.log(event.which)
   }
  //
-   function handleKeyUp(event) {
+   function handleKeyUp(event) { // Responds after the buttons are let go (after being pressed)
      if (event.which === KEY.SPACEBAR) {
       console.log("Spacebar Lifted");
     }
@@ -143,13 +145,19 @@ function runProgram(){
   /////////////////////////////// HELPER FUNCTIONS ///////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
   
-  function toggleStatusBox() {
+  // DEFUNCT
+  // function positionProjectile() {
+  //   projectile.positionX = walker.positionX;
+  //   projectile.positionY = walker.positionY;
+  //  }
+  
+  function toggleStatusBox() { // Turns the custom debug menu off
     if ($showDebug = "Show Debug?: True") {
      $showDebug = "Show Debug?: False";
      $("#status").hide();
     }
    //
-    else if ($showDebug = "Show Debug?: False") {
+    else if ($showDebug = "Show Debug?: False") { // (Is bugged, cannot turn it back on if turned off)
       $showDebug = "Show Debug?: True"
       $("#status").show();
     }
