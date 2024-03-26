@@ -85,18 +85,18 @@ function handleBad (data, repeat) {
 
 function staticDisplay() {
  // TODO 3-b: call your handleStatic function
- handleStatic(dataShapes[i])
+ handleStatic(currentIndex)
 }
 
 function goodDisplay() {
  // TODO 4-b: call your handleGood function
- var currentShape = dataShapes[i] 
+ var currentShape =  currentIndex
  handleGood(currentShape.color, currentShape.shape, currentShape.repeat)
 }
 
 function badDisplay() {
  // TODO 5-b: call your handleBad function
- var currentShape = dataShapes[i]
+ var currentShape = currentIndex
  var repeat = currentShape.repeat
  handleBad(currentShape, repeat)
 }
