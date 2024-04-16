@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(255, 17, 72);
+}
+
+.page {
+}
+
+.document {
+     background-color: rgb(233, 18, 65);
+     border: 50px;
+     width: 450px;
+     height: 450px;
+     text-align: center;
+     display: inline-block;
+     vertical-align: top;
+}
+
+.savedDocument {
+    background-color: rgb(233, 18, 65);
+    border: 50px;
+    width: 450px;
+    height: 450px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.textbox {
+    width: 425px;
+    height: 425px;
+}

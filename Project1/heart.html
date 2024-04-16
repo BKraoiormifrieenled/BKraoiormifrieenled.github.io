@@ -1,0 +1,36 @@
+<!DOCTYPE HTML)>
+<html>
+       
+<head>
+       <title> 💖 </title>
+       <link rel="stylesheet" href="love.css">
+       <script src="https://code.jquery.com/jquery-git.js"> </script>
+</head>
+
+<body>
+<div class="page">
+
+ <div class="document">
+  <input placeholder = "Textbox", class = "textbox"></imput>
+  <button>Submit</button>
+ </div>
+ 
+ <div class="savedDocument">
+  <p>Awaiting Imput...</p>
+ </div>
+
+</div>
+</body>
+
+<script>
+
+debugger
+
+$("button").on('click', createNewDocument);
+
+function createNewDocument() {
+ var newdocument = $("input").val();
+ $("p").text("testing " + newDocument);
+}
+
+</script>

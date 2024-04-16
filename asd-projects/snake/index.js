@@ -68,9 +68,7 @@ snake.head = snake.body[0];
 * collisions with the walls.
 */
 
-function update() {
   // TODO 5b: Fill in the update function's code block
-
   function update() {
     moveSnake();
   
@@ -82,9 +80,8 @@ function update() {
       handleAppleCollision();
     }
   }
-}
 
-function checkForNewDirection(event) {
+function checkForNewDirection(activeKey) {
   /* 
   TODO 6b: Update snake.head.direction based on the value of activeKey.
   
@@ -123,6 +120,22 @@ function moveSnake() {
   
   */
 
+  for (var i = snake.body.length - 1; i > 0; i--) {
+   var currentSquare = snake.body[i]
+   var nextSquare = snake.body[i - 1]
+
+   var nextRow = nextSquare.row
+   var nextColumn = nextSquare.column
+
+   var nextDirection = nextSquare.direction
+
+   currentSquare.row = nextRow
+   currentSquare.column = nextColumn
+   currentSquare.direction = nextDirection
+
+   repositionSquare(currentSquare)
+  }
+
   // Before moving the head, check for a new direction from the keyboard input
   checkForNewDirection();
 
@@ -160,7 +173,7 @@ function hasHitWall() {
   if (snake.head.row = ROWS + 1) { // One Row outside of the box
    return true; }
    //
-   else if (snake.head.row = -1) { //^^ but on the other side
+  if (snake.head.row = -1) { //^^ but on the other side
      return true; 
      }
    //
@@ -168,12 +181,12 @@ function hasHitWall() {
      return true;
      }
    //
-   else if (snake.head.column = -1) { // ^^, but on the other end
+  if (snake.head.column = -1) { // ^^, but on the other end
       return true;
      }
    //
-   else {
-     return false; }
+  
+  return false; 
 }
 
 function hasCollidedWithApple() {
@@ -183,17 +196,14 @@ function hasCollidedWithApple() {
   
   HINT: Both the apple and the snake's head are aware of their own row and column
   */
-  if (snake.head.column === apple.column) {
+  if (snake.head.column === apple.column && snake.head.row === apple.row) {
      return true ;
      }
    //
-  else if (snake.head.row === apple.row) {
-     return true;
-     }
+ 
    //
-   else {
      return false;
-     }
+     
 }
 
 function handleAppleCollision() {
@@ -286,7 +296,8 @@ function makeApple() {
   apple.column = randomPosition.column;
 
   // position the apple on the screen
-  repositionSquare(apple);}
+  repositionSquare(apple);
+}
 
 /* Create an HTML element for a snakeSquare using jQuery. Then, given a row and
  * column on the board, position it on the screen. Finally, add the new

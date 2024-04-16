@@ -20,8 +20,8 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-  applyFilter(reddify) // TODO 1b & 4b
-  applyFilter(decreaseBlue) // TODO 6a
+  //applyFilter(reddify) // TODO 1b & 4b
+  //applyFilter(decreaseBlue) // TODO 6a
   applyFilter(increaseGreenByBlue) // TODO 6b
 
   // The following 2 causes the program to crash //
@@ -53,7 +53,7 @@ function applyFilter(filterFunction) {
 } // applyFilter Function End
 
 // TODO 7: Create the applyFilterNoBackground function
-function applyFilterNoBackground() {
+function applyFilterNoBackground(filterFunction) {
    var bgColor = image[0][0] // 7b
 
   for (var r = 0; r < image.length; r++){ // 7a
@@ -61,14 +61,15 @@ function applyFilterNoBackground() {
       var rgbString = image[r][c] // 2a
    
     if (rgbString !== bgColor) {
-     image[r][c] = bgColor // Don't apply filter
-    }
-    //
-    else {  // Apply filter
+     // Apply filter
      var rgbNumbers =  rgbStringToArray(rgbString) // 2b
      filterFunction(rgbNumbers) // 4c
      rgbString = rgbArrayToString(rgbNumbers) // 2d       
      image[r][c] = rgbString // 2e
+    }
+    //
+    else {  
+      image[r][c] = bgColor // Don't apply filter
      }
     } // 2nd forLoop end
   }// first forLoop end
@@ -88,7 +89,8 @@ function keepInBounds(num) {
 } // keepInBounds Function End
 
 // TODO 3: Create reddify function
-function reddify(array) { 
+// makes stuff blue
+function reddify(array) {
   array[RED] = 200 
   } 
 
@@ -99,7 +101,8 @@ function decreaseBlue(array) { // 6a
   array[BLUE] = keepInBounds(valueA)
   }// decreaseBlue Function End
 
-function increaseGreenByBlue(array) {
+// makes stuff green
+function increaseGreenByBlue(array) { 
   var valueB = array[GREEN] + array[BLUE]
   array[GREEN] = keepInBounds(valueB)
   } // increaseGreenByBlue Function End
