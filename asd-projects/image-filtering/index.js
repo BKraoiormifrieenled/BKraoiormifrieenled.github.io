@@ -20,12 +20,12 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-  //applyFilter(reddify) // TODO 1b & 4b
-  //applyFilter(decreaseBlue) // TODO 6a
-  applyFilter(increaseGreenByBlue) // TODO 6b
+  // applyFilter(reddify) // TODO 1b & 4b
+  // applyFilter(decreaseBlue) // TODO 6a
+  // applyFilter(increaseGreenByBlue) // TODO 6b
 
   // The following 2 causes the program to crash //
-  // applyFilterNoBackground(decreaseBlue) // TODO 7
+     applyFilterNoBackground(decreaseBlue) // TODO 7
   // applyFilterNoBackground(increaseGreenByBlue) // TODO 7
 
   // do not change the below line of code
@@ -73,7 +73,6 @@ function applyFilterNoBackground(filterFunction) {
      }
     } // 2nd forLoop end
   }// first forLoop end
-
 } // applyFilterNoBackground Function End
 
 // TODO 5: Create the keepInBounds function
