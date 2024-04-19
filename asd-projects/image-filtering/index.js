@@ -57,7 +57,7 @@ function applyFilterNoBackground(filterFunction) {
    var bgColor = image[0][0] // 7b
 
   for (var r = 0; r < image.length; r++){ // 7a
-    for (var c = 0; c < image[r].length; j++ ){
+    for (var c = 0; c < image[r].length; c++ ){
       var rgbString = image[r][c] // 2a
    
     if (rgbString !== bgColor) {
@@ -68,23 +68,20 @@ function applyFilterNoBackground(filterFunction) {
      image[r][c] = rgbString // 2e
     }
     //
-    else {  
       image[r][c] = bgColor // Don't apply filter
-     }
     } // 2nd forLoop end
   }// first forLoop end
 } // applyFilterNoBackground Function End
 
 // TODO 5: Create the keepInBounds function
 function keepInBounds(num) {
-  if (num < 0 ) {return 0}
-  else if (num > 225) {return 225}
-  else {return num}
+//  if (num < 0 ) {return 0}
+//  else if (num > 225) {return 225}
+//  else {return num}
 
-// var resultA = num > 0 ? 0 : num  // 5i
-// return resultA
-// var resultB = num < 255 ? 255 : num // 5ii
-// return resultB
+var resultA = num < 0 ? 0 : num  // 5i
+return resultA > 255 ? 255 : resultA
+
 } // keepInBounds Function End
 
 // TODO 3: Create reddify function
