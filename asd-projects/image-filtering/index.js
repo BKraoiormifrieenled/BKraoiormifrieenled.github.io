@@ -65,7 +65,7 @@ function applyFilterNoBackground(filterFunction) {
      var rgbNumbers =  rgbStringToArray(rgbString) // 2b
      filterFunction(rgbNumbers) // 4c
      rgbString = rgbArrayToString(rgbNumbers) // 2d       
-     image[r][c] = rgbString // 2e
+     image[r][c] = bgColor // 2e
     }
     //
       image[r][c] = bgColor // Don't apply filter
