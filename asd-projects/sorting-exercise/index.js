@@ -16,14 +16,14 @@ The CSS ids you will work with are:
 async function bubbleSort(array) {
   while (sorted = false)
    //
-    for( var f = 0; f < array.length - 1; f++) { // 2b
+    for( var f = 0; f < array.length - 1; f++) { 
      //
       for (var t = array.length - 1; t < f + 1; t++) {
        //
-        if (array[t].value < array[t + 1].value) {
-         swap(array, array[t], array[t - 1])
-         updateCounter(bubbleCounter);
-         await sleep();
+        if (array[t].value < array[t + 1].value)  { // checks for the values in the array
+         swap(array, array[t], array[t - 1]) 
+         updateCounter(bubbleCounter); // updates how many moves were made?
+         await sleep(); // what does this mean???
        } // if statemend end
        sorted = false;
       } // for loop 2 end [t]
@@ -31,22 +31,40 @@ async function bubbleSort(array) {
 } // function end
 
 // TODO 3: Implement quickSort
-async function quickSort(array, left, right) {
- if (right - left > 0) { 
-  var index = await partition(array, left, right) }
+async function quickSort(array, left, right) { // 3a & 3b
+
+ if (right - left > 0) { // splits the array (hopefully)
+  var index = await partition(array, left, right) } //3b2
  //
- if (left < index - 1) {
-  await quickSort(array, left, index - 1)
+ if (left < index - 1) { // quicksort left
+  await quickSort(array, left, index - 1) // 3b3
  }
-  
-  //  IF left < (index - 1):
-  //  quickSort(array, left, index - 1)
-  //IF index < right:
-  //  quickSort(array, index, right) 
+ //
+ if (index < right) { // quicksort right
+  await quickSort(array, index, right) // 3b4
+ }
 }
 
 // TODOs 4 & 5: Implement partition
-
+async function partition(array, left, right) {
+  var pivot = array[Math.floor((right + left)/2)].value; // 4b
+  while (left < right) { // 4c
+   while (array[left].value < pivot) {
+    array[left].value = array[left].value + 1 // 5a
+   } // left while loop end
+   //
+   while (array[right].value > pivot) {
+    array[right].value = array[right].value - 1 // 5b
+   } // right while loop end
+   //
+   if (left < right) {
+    swap(array, array[left], array[right]) // 5ci
+    updateCounter(quickCounter) // 5cii
+    await sleep() // 5ciii
+   } // if statement end
+  } // outer while loop end
+  return left + 1; // 4d
+}
 
 // TODO 1: Implement swap
 function swap(array, i, j) {
