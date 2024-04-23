@@ -1,0 +1,22 @@
+.board {
+    background-color: black;
+    border-color: pink;
+    width: 550px;
+    height: 550px;
+    border-width: 50px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+.buttons {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+.square {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+  }

@@ -12,53 +12,55 @@ The CSS ids you will work with are:
 ///////////////////////////////////////////////////////////////////////
 /////////////////////// YOUR WORK GOES BELOW HERE /////////////////////
 ///////////////////////////////////////////////////////////////////////
+
 // TODO 2: Implement bubbleSort
 async function bubbleSort(array) {
-  while (sorted = false)
    //
-    for( var f = 0; f < array.length - 1; f++) { 
+    for(var i = 0; i < array.length; i++) { 
      //
-      for (var t = array.length - 1; t < f + 1; t++) {
+      for (var j = array.length - 1; j >= i + 1; i--) {
        //
-        if (array[t].value < array[t + 1].value)  { // checks for the values in the array
-         swap(array, array[t], array[t - 1]) 
+        if (array[j].value < array[j - 1].value)  { // checks for the values in the array
+         swap(array, j, j - 1) 
          updateCounter(bubbleCounter); // updates how many moves were made?
-         await sleep(); // what does this mean???
+         await sleep();
        } // if statemend end
-       sorted = false;
-      } // for loop 2 end [t]
-    } // for loop 1 end [f]
+      } // for loop 2 end [j]
+    } // for loop 1 end [i]
 } // function end
 
 // TODO 3: Implement quickSort
 async function quickSort(array, left, right) { // 3a & 3b
 
  if (right - left > 0) { // splits the array (hopefully)
-  var index = await partition(array, left, right) } //3b2
+  var index = await partition(array, left, right)  //3b2
  //
- if (left < index - 1) { // quicksort left
+  if (left < index - 1) { // quicksort left
   await quickSort(array, left, index - 1) // 3b3
- }
- //
- if (index < right) { // quicksort right
+  } // if statement left end
+  //
+  if (index < right) { // quicksort right
   await quickSort(array, index, right) // 3b4
- }
-}
+  } // if statement right end
+ } // first if stamement end
+} // quicksort function end
 
 // TODOs 4 & 5: Implement partition
 async function partition(array, left, right) {
   var pivot = array[Math.floor((right + left)/2)].value; // 4b
+  
   while (left < right) { // 4c
-   while (array[left].value < pivot) {
-    array[left].value = array[left].value + 1 // 5a
+  
+    while (array[left].value < pivot) {
+    left++// 5a
    } // left while loop end
-   //
+   
    while (array[right].value > pivot) {
-    array[right].value = array[right].value - 1 // 5b
+    right--// 5b
    } // right while loop end
-   //
+
    if (left < right) {
-    swap(array, array[left], array[right]) // 5ci
+    swap(array, left, right) // 5ci
     updateCounter(quickCounter) // 5cii
     await sleep() // 5ciii
    } // if statement end
@@ -68,7 +70,11 @@ async function partition(array, left, right) {
 
 // TODO 1: Implement swap
 function swap(array, i, j) {
- [array[i], array[j]] = [array[i], array[j]]
+ var temp = array[i]
+array[i] = array [j]
+array[j] = temp
+drawSwap(array, i, j);
+ // [array[i], array[j]] = [array[i], array[j]]
 }
 
 ///////////////////////////////////////////////////////////////////////
