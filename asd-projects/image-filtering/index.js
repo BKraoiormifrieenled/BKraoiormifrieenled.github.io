@@ -25,8 +25,9 @@ function applyAndRender() {
   // applyFilter(increaseGreenByBlue) // TODO 6b
 
   // The following 2 causes the program to crash //
-     applyFilterNoBackground(decreaseBlue) // TODO 7
-  // applyFilterNoBackground(increaseGreenByBlue) // TODO 7
+  //applyFilter(reddify)
+  //applyFilterNoBackground(decreaseBlue) // TODO 7
+  applyFilterNoBackground(increaseGreenByBlue) // TODO 7
 
   // do not change the below line of code
   render($("#display"), image);
@@ -65,10 +66,10 @@ function applyFilterNoBackground(filterFunction) {
      var rgbNumbers =  rgbStringToArray(rgbString) // 2b
      filterFunction(rgbNumbers) // 4c
      rgbString = rgbArrayToString(rgbNumbers) // 2d       
-     image[r][c] = bgColor // 2e
+     image[r][c] = rgbString // 2e
     }
     //
-      image[r][c] = bgColor // Don't apply filter
+      
     } // 2nd forLoop end
   }// first forLoop end
 } // applyFilterNoBackground Function End
