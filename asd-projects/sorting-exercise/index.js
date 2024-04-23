@@ -52,7 +52,7 @@ async function partition(array, left, right) {
   while (left < right) { // 4c
   
     while (array[left].value < pivot) {
-    left++// 5a
+    left++ // 5a
    } // left while loop end
    
    while (array[right].value > pivot) {
