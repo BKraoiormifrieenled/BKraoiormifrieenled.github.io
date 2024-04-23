@@ -49,7 +49,7 @@ function init() {
 snake.body = [];
 
 // make the first snakeSquare and set it as the head
-makeSnakeSquare(10, -1);
+   makeSnakeSquare(10, 10);
 snake.head = snake.body[0];
 
   // TODO 4b-2: initialize the apple
@@ -88,8 +88,8 @@ function checkForNewDirection(activeKey) {
   BONUS: Only allow direction changes to take place if the new direction is
   perpendicular to the current direction
   */ // ??????????? //
-debugger
-  if (activeKey === KEY.LEFT) {
+
+  if (activeKey === KEY.LEFT) { // note, the key is being logged but the direction isn't changing
      snake.head.direction = "left";}
      
      // FILL IN THE REST
@@ -104,10 +104,6 @@ debugger
 
   console.log(snake.head.direction); // uncomment me!
 }
-
-// Note: When logging the dirction of the snake head, it shows the row/column(?) 
-// of where it is, rather than the direction. Unsure of how to fix this
-// This error prevents the snake from moving properly, and sometimes, not at all
 
 function moveSnake() {
   /* 
@@ -153,10 +149,10 @@ function moveSnake() {
       snake.head.column = snake.head.column + 1;}
    //
    if (snake.head.direction = "up") {
-      snake.head.column = snake.head.row - 1;}
+      snake.head.row = snake.head.row - 1;}
    //
    if (snake.head.direction = "down") {
-     snake.head.column = snake.head.row + 1;}
+     snake.head.row = snake.head.row + 1;}
   
    repositionSquare(snake.head);
 
@@ -170,22 +166,21 @@ function hasHitWall() {
   HINT: What will the row and column of the snake's head be if this were the case?
   */
   
-  if (snake.head.row = ROWS + 1) { // One Row outside of the box
+  if (snake.head.row >= ROWS) { 
    return true; }
    //
-  if (snake.head.row = -1) { //^^ but on the other side
+  if (snake.head.row <= 0) {
      return true; 
      }
    //
-  if (snake.head.column = COLUMNS + 1) { // one column outside of the box
+  if (snake.head.column >= COLUMNS) { 
      return true;
      }
    //
-  if (snake.head.column = -1) { // ^^, but on the other end
+  if (snake.head.column <= 0) { 
       return true;
      }
    //
-  
   return false; 
 }
 
