@@ -1,0 +1,53 @@
+body {
+    background-color: rgba(236, 53, 83, 0.669);
+  }
+
+#board {
+ background-color: black;
+ border-color: white;
+ color: white;
+ width: 440px;
+ height: 440px;
+ border: 10px solid rgb(255, 177, 192);
+ position: relative;
+ display: inline-block;
+ vertical-align: top;
+}
+
+/* In Game Objects */
+
+#ball {
+    background-color: rgb(255, 0, 89);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    /* X Y Cordinates */
+    position: relative;
+    left: 205px;
+    top: 200px;
+}
+
+#paddle1 {
+    background-color: rgb(255, 0, 17);
+    color: white;
+    width: 20px;
+    height: 100px;
+    border-radius: 5px;
+    /* X Y Cordinates */
+    position: relative;
+    left: 10px;
+    top: 140px;   
+}
+
+#paddle2 {
+    background-color: rgb(255, 0, 221);
+    color: white;
+    width: 20px;
+    height: 100px;
+    border-radius: 5px;
+    /* X Y Cordinates */
+    position: relative;
+    left: 410px;
+    top: 45px;   
+}

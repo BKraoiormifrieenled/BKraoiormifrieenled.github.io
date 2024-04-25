@@ -93,7 +93,7 @@ function checkForNewDirection(activeKey) {
      snake.head.direction = "left";}
      
      // FILL IN THE REST
-     if (activeKey === KEY.RIGHT) {
+     if (activeKey === KEY.RIGHT) {     
        snake.head.direction = "right";}
      //
      if (activeKey === KEY.UP) {
@@ -241,7 +241,6 @@ function handleAppleCollision() {
   if (snake.head.direction = "down") {                        // PERSONAL NOTE:
     makeSnakeSquare(snake.head.row - 1, snake.head.column ); // Going up one is -1, an the square needs
    }                                                        // to be one row above the head when going down
-
 }
 
 function hasCollidedWithSnake() {
