@@ -12,9 +12,9 @@ var highScoreElement = $("#highScore");
 // TODO 4a: Create the snake, apple and score variables
 // Game Variables
 
-var snake = {}
-var apple = {}
-var score = 0
+var snake = {};
+var apple = {};
+var score = 0;
 
 // Constant Variables
 var ROWS = 20;
@@ -45,18 +45,18 @@ init();
 
 function init() {
   // TODO 4c-2: initialize the snake
-// initialize the snake's body as an empty Array
-snake.body = [];
+  // initialize the snake's body as an empty Array
+  snake.body = [];
 
-// make the first snakeSquare and set it as the head
-   makeSnakeSquare(10, 10);
-snake.head = snake.body[0];
+  // make the first snakeSquare and set it as the head
+  makeSnakeSquare(10, 10);
+  snake.head = snake.body[0];
 
   // TODO 4b-2: initialize the apple
-   makeApple()
-  
+  makeApple();
+
   // TODO 5a: Initialize the interval
-    updateInterval = setInterval(update, 100);
+  updateInterval = setInterval(update, 100);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -68,20 +68,20 @@ snake.head = snake.body[0];
 * collisions with the walls.
 */
 
-  // TODO 5b: Fill in the update function's code block
-  function update() {
-    moveSnake();
-  
-    if (hasHitWall() || hasCollidedWithSnake()) {
-      endGame();
-    }
+// TODO 5b: Fill in the update function's code block
+function update() {
+  moveSnake();
 
-    if (hasCollidedWithApple()) {
-      handleAppleCollision();
-    }
+  if (hasHitWall() || hasCollidedWithSnake()) {
+    endGame();
   }
 
-function checkForNewDirection(activeKey) {
+  if (hasCollidedWithApple()) {
+    handleAppleCollision();
+  }
+}
+
+function checkForNewDirection() {
   /* 
   TODO 6b: Update snake.head.direction based on the value of activeKey.
   
@@ -90,17 +90,21 @@ function checkForNewDirection(activeKey) {
   */ // ??????????? //
 
   if (activeKey === KEY.LEFT) { // note, the key is being logged but the direction isn't changing
-     snake.head.direction = "left";}
-     
-     // FILL IN THE REST
-      if (activeKey === KEY.RIGHT) {     
-       snake.head.direction = "right";}
-     //
-     if (activeKey === KEY.UP) {
-       snake.head.direction = "up";}
-     //
-     if (activeKey === KEY.DOWN) {
-       snake.head.direction = "down";}
+    snake.head.direction = "left";
+  }
+
+  // FILL IN THE REST
+  if (activeKey === KEY.RIGHT) {
+    snake.head.direction = "right";
+  }
+  //
+  if (activeKey === KEY.UP) {
+    snake.head.direction = "up";
+  }
+  //
+  if (activeKey === KEY.DOWN) {
+    snake.head.direction = "down";
+  }
 
   console.log(snake.head.direction); // uncomment me!
 }
@@ -117,18 +121,18 @@ function moveSnake() {
   */
 
   for (var i = snake.body.length - 1; i >= 1; i--) {
-   var snakeSquare = snake.body[i]
-   var nextSnakeSquare = snake.body[i - 1]
+    var snakeSquare = snake.body[i]
+    var nextSnakeSquare = snake.body[i - 1]
 
-   var nextRow = nextSnakeSquare.row
-   var nextColumn = nextSnakeSquare.column
-   var nextDirection = nextSnakeSquare.direction
+    var nextRow = nextSnakeSquare.row
+    var nextColumn = nextSnakeSquare.column
+    var nextDirection = nextSnakeSquare.direction
 
-   snakeSquare.row = nextRow
-   snakeSquare.column = nextColumn
-   snakeSquare.direction = nextDirection
+    snakeSquare.row = nextRow
+    snakeSquare.column = nextColumn
+    snakeSquare.direction = nextDirection
 
-   repositionSquare(currentSquare)
+    repositionSquare(snakeSquare)
   }
 
   // Before moving the head, check for a new direction from the keyboard input
@@ -141,19 +145,23 @@ function moveSnake() {
   of snake.head.direction which may be one of "left", "right", "up", or "down"
   */
 
-   if (snake.head.direction === "left") {
-     snake.head.column = snake.head.column - 1;}
-   //
-   if (snake.head.direction === "right") {
-      snake.head.column = snake.head.column + 1;}
-   //
-   if (snake.head.direction === "up") {
-      snake.head.row = snake.head.row - 1;}
-   //
-   if (snake.head.direction === "down") {
-     snake.head.row = snake.head.row + 1;}
-  
-   repositionSquare(snake.head);
+  if (snake.head.direction === "left") {
+    snake.head.column = snake.head.column - 1;
+  }
+  //
+  if (snake.head.direction === "right") {
+    snake.head.column = snake.head.column + 1;
+  }
+  //
+  if (snake.head.direction === "up") {
+    snake.head.row = snake.head.row - 1;
+  }
+  //
+  if (snake.head.direction === "down") {
+    snake.head.row = snake.head.row + 1;
+  }
+
+  repositionSquare(snake.head);
 
 }
 
@@ -164,11 +172,11 @@ function hasHitWall() {
   
   HINT: What will the row and column of the snake's head be if this were the case?
   */
-  
-  if (snake.head.row > ROWS || snake.head.row < 0 ||snake.head.column > COLUMNS || snake.head.column < 0) { 
-   return true; 
+
+  if (snake.head.row > ROWS || snake.head.row < 0 || snake.head.column > COLUMNS || snake.head.column < 0) {
+    return true;
   }
-  else {return false;} 
+  else { return false; }
 }
 
 function hasCollidedWithApple() {
@@ -179,10 +187,10 @@ function hasCollidedWithApple() {
   HINT: Both the apple and the snake's head are aware of their own row and column
   */
   if (snake.head.column === apple.column && snake.head.row === apple.row) {
-     return true ;
-     }
+    return true;
+  }
   else { return false; }
-     
+
 }
 
 function handleAppleCollision() {
@@ -208,20 +216,20 @@ function handleAppleCollision() {
   var column = snake.tail.column;
 
   // code to determine the row and column of the snakeSquare to add to the snake
-  
-  if (snake.tail.direction = "left") {
-   column++
-   }
- //
-  if (snake.tail.direction = "right") {
-   column--
-   }
-  if (snake.tail.direction = "up") {
+
+  if (snake.tail.direction === "left") {
+    column++
+  }
+  //
+  if (snake.tail.direction === "right") {
+    column--
+  }
+  if (snake.tail.direction === "up") {
     row++
-   }
- //
-  if (snake.tail.direction = "down") {
-  row--
+  }
+  //
+  if (snake.tail.direction === "down") {
+    row--
   }
   makeSnakeSquare(row, column);
 }
@@ -234,12 +242,12 @@ function hasCollidedWithSnake() {
   HINT: Each part of the snake's body is stored in the snake.body Array. The
   head and each part of the snake's body also knows its own row and column.
   */
-for (var i = 1; i < snake.body.length; i++) {
-  if (snake.head.row === snake.body[i].row && snake.head.column === snake.body[i].column) {
-    return true
-   } // if statement end
-   else {return false }
- } // for loop end
+  for (var i = 1; i < snake.body.length; i++) {
+    if (snake.head.row === snake.body[i].row && snake.head.column === snake.body[i].column) {
+      return true
+    } // if statement end
+    else { return false }
+  } // for loop end
 } // function end
 
 function endGame() {
@@ -359,7 +367,7 @@ function getRandomAvailablePosition() {
     not occupied by a snakeSquare in the snake's body. If it is then set 
     spaceIsAvailable to false so that a new position is generated.
     */
-    
+
   }
 
   return randomPosition;
