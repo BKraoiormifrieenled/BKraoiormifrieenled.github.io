@@ -67,50 +67,46 @@ function runProgram(){
   Called in response to events.
   */
   
-  // $("#debugToggle").on("click", toggleStatusBox());
-  function handleKeyDown(event) { // Responds when any of the buttons are pressed
-    $("#walkerCordinates").text("Current Cordinates: " + walker.positionX + ", " + walker.positionY);
-    $("#projectileCordinates").text("Projectile Cordinates: " + projectile.positionX + ", " + projectile.positionY);
-    //
-    if (event.which === KEY.ENTER) {
-      $imputLog.text("Imput: Enter Key");
-      console.log("Enter Key pressed");
-      toggleStatusBox(); // Turns off and on the Debug Box
+ function handleKeyDown(event) { // Responds when any of the buttons are pressed
+  //  $("#walkerCordinates").text("Current Cordinates: " + walker.positionX + ", " + walker.positionY);
+  //  $("#projectileCordinates").text("Projectile Cordinates: " + projectile.positionX + ", " + projectile.positionY);
+
+   if (event.which === KEY.ENTER) {
+      $imputLog.text("Imput: Enter Key"); // Tells the Player what key was pressed
+      console.log("Enter Key pressed"); // Console.logs it for good measure
     }
     //
     if (event.which === KEY.SPACEBAR) {
       $imputLog.text("Imput: Space Bar");
       console.log("Space Bar pressed");
-      positionProjectile()
-    }
-    //
-    if (event.which === KEY.LEFT) {
-      walker.speedX = -5;
-      $imputLog.text("Imput: Left Arrow Key");
-      console.log("Left Arrow pressed");
+      
     }
     //
     if (event.which === KEY.UP) {
-      walker.speedY = -5;
       $imputLog.text("Imput: Up Arrow Key");
       console.log("Up Arrow pressed");
-    }
-    //
-    if (event.which === KEY.RIGHT) {
-      walker.speedX = 5;
-      $imputLog.text("Imput: Right Arrow Key");
-      console.log("Right Arrow pressed");
+      walker.speedY = -5
     }
     //
     if (event.which === KEY.DOWN) {
-      walker.speedY = 5;
       $imputLog.text("Imput: Down Arrow Key");
       console.log("Down Arrow pressed");
+      walker.speedY = 5
     }
     //
-    console.log(event.which)
+    if (event.which === KEY.LEFT) {
+      $imputLog.text("Imput: Left Arrow Key")
+      console.log("Left Arrow pressed");
+      walker.speedX = -5
+    }
+    //
+    if (event.which === KEY.RIGHT) {
+      $imputLog.text("Imput: Right Arrow Key");
+      console.log("Right Arrow pressed");
+      walker.speedX = 5
+    }
   }
- //
+  //
    function handleKeyUp(event) { // Responds after the buttons are let go (after being pressed)
      if (event.which === KEY.SPACEBAR) {
       console.log("Spacebar Lifted");
@@ -120,26 +116,28 @@ function runProgram(){
       console.log("Enter Key Lifted");
     }
     //
-    if (event.which === KEY.LEFT) {
-      walker.speedX = 0;
-      console.log("Left Arrow Lifted");
-    }
-    //
     if (event.which === KEY.UP) {
-      walker.speedY = 0;
       console.log("Up Arrow Lifted");
-    }
-    //
-    if (event.which === KEY.RIGHT) {
-      walker.speedX = 0;
-      console.log("Right Arrow Lifted");
+      walker.speedY = 0
     }
     //
     if (event.which === KEY.DOWN) {
-      walker.speedY = 0;
       console.log("Down Arrow Lifted");
+      walker.speedY = 0
+    }
+    if (event.which === KEY.LEFT) {
+      console.log("Left Arrow Key Lifted");
+      walker.speedX = 0
+    }
+    //
+    if (event.which === KEY.RIGHT) {
+      console.log("Right Key Lifted");
+      walker.speedX = 0
     }
    }
+  // $("#debugToggle").on("click", toggleStatusBox());
+
+
 
   ////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////// HELPER FUNCTIONS ///////////////////////////////

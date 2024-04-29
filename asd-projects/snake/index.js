@@ -93,7 +93,7 @@ function checkForNewDirection(activeKey) {
      snake.head.direction = "left";}
      
      // FILL IN THE REST
-     if (activeKey === KEY.RIGHT) {     
+      if (activeKey === KEY.RIGHT) {     
        snake.head.direction = "right";}
      //
      if (activeKey === KEY.UP) {
@@ -116,18 +116,17 @@ function moveSnake() {
   
   */
 
-  for (var i = snake.body.length - 1; i > 0; i--) {
-   var currentSquare = snake.body[i]
-   var nextSquare = snake.body[i - 1]
+  for (var i = snake.body.length - 1; i >= 1; i--) {
+   var snakeSquare = snake.body[i]
+   var nextSnakeSquare = snake.body[i - 1]
 
-   var nextRow = nextSquare.row
-   var nextColumn = nextSquare.column
+   var nextRow = nextSnakeSquare.row
+   var nextColumn = nextSnakeSquare.column
+   var nextDirection = nextSnakeSquare.direction
 
-   var nextDirection = nextSquare.direction
-
-   currentSquare.row = nextRow
-   currentSquare.column = nextColumn
-   currentSquare.direction = nextDirection
+   snakeSquare.row = nextRow
+   snakeSquare.column = nextColumn
+   snakeSquare.direction = nextDirection
 
    repositionSquare(currentSquare)
   }
@@ -142,16 +141,16 @@ function moveSnake() {
   of snake.head.direction which may be one of "left", "right", "up", or "down"
   */
 
-   if (snake.head.direction = "left") {
+   if (snake.head.direction === "left") {
      snake.head.column = snake.head.column - 1;}
    //
-   if (snake.head.direction = "right") {
+   if (snake.head.direction === "right") {
       snake.head.column = snake.head.column + 1;}
    //
-   if (snake.head.direction = "up") {
+   if (snake.head.direction === "up") {
       snake.head.row = snake.head.row - 1;}
    //
-   if (snake.head.direction = "down") {
+   if (snake.head.direction === "down") {
      snake.head.row = snake.head.row + 1;}
   
    repositionSquare(snake.head);
@@ -166,22 +165,10 @@ function hasHitWall() {
   HINT: What will the row and column of the snake's head be if this were the case?
   */
   
-  if (snake.head.row >= ROWS) { 
-   return true; }
-   //
-  if (snake.head.row <= 0) {
-     return true; 
-     }
-   //
-  if (snake.head.column >= COLUMNS) { 
-     return true;
-     }
-   //
-  if (snake.head.column <= 0) { 
-      return true;
-     }
-   //
-  return false; 
+  if (snake.head.row > ROWS || snake.head.row < 0 ||snake.head.column > COLUMNS || snake.head.column < 0) { 
+   return true; 
+  }
+  else {return false;} 
 }
 
 function hasCollidedWithApple() {
@@ -194,10 +181,7 @@ function hasCollidedWithApple() {
   if (snake.head.column === apple.column && snake.head.row === apple.row) {
      return true ;
      }
-   //
- 
-   //
-     return false;
+  else { return false; }
      
 }
 
@@ -220,27 +204,26 @@ function handleAppleCollision() {
   etc...
   */
 
-  var row = 0;
-  var column = 0;
+  var row = snake.tail.row;
+  var column = snake.tail.column;
 
   // code to determine the row and column of the snakeSquare to add to the snake
   
-  var makeSnakeSquare
-
-  if (snake.head.direction = "left") {
-   makeSnakeSquare(snake.head.row, snake.head.column + 1);
+  if (snake.tail.direction = "left") {
+   column++
    }
  //
-  if (snake.head.direction = "right") {
-   makeSnakeSquare(snake.head.row, snake.head.column - 1);
+  if (snake.tail.direction = "right") {
+   column--
    }
-  if (snake.head.direction = "up") {
-    makeSnakeSquare(snake.head.row + 1, snake.head.column);
+  if (snake.tail.direction = "up") {
+    row++
    }
  //
-  if (snake.head.direction = "down") {                        // PERSONAL NOTE:
-    makeSnakeSquare(snake.head.row - 1, snake.head.column ); // Going up one is -1, an the square needs
-   }                                                        // to be one row above the head when going down
+  if (snake.tail.direction = "down") {
+  row--
+  }
+  makeSnakeSquare(row, column);
 }
 
 function hasCollidedWithSnake() {
@@ -251,8 +234,13 @@ function hasCollidedWithSnake() {
   HINT: Each part of the snake's body is stored in the snake.body Array. The
   head and each part of the snake's body also knows its own row and column.
   */
-
-} 
+for (var i = 1; i < snake.body.length; i++) {
+  if (snake.head.row === snake.body[i].row && snake.head.column === snake.body[i].column) {
+    return true
+   } // if statement end
+   else {return false }
+ } // for loop end
+} // function end
 
 function endGame() {
   // stop update function from running
